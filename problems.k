@@ -17,6 +17,13 @@
 / Gift distribution must be random
 / n=5; 31452 -- Person 1 gets gift from person 3
 / 52341 - Invalid result, person 2 3 4 gets gift for themselves
- s:{if[2>x;:"You cannot gift yourself"];$[max(!x)=o:{(-x)?x}x;s[x];o]};
+ s:{if[2>x;'"You cannot gift yourself"];$[max(!x)=o:{(-x)?x}x;s[x];o]};
  /- Test max max (!5)=/:s'[10#5]
  /- TODO - condition of 1 user needs to be resolved
+
+ //- Largest Sum Contiguous Subarray - Kedane
+ /- Write an efficient program to find the sum of contiguous subarray within a one-dimensional array of numbers which has the largest sum.
+ /- Input - list of elements
+ /- Output - Largest sum contiguous subarray
+ f:{msf::meh::0;last{meh::meh+x;$[meh<0;meh::0;msf<meh;msf::meh;::];msf}'[x]};
+ /- Test - f[-2, -3, 4, -1, -2, 1, 5, -3]
